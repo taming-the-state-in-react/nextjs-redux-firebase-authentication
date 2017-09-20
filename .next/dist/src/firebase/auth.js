@@ -1,0 +1,34 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.doPasswordUpdate = exports.doPasswordReset = exports.doSignOut = exports.doSignInWithEmailAndPassword = exports.doCreateUserWithEmailAndPassword = undefined;
+
+var _firebase = require('./firebase');
+
+// Sign Up
+var doCreateUserWithEmailAndPassword = exports.doCreateUserWithEmailAndPassword = function doCreateUserWithEmailAndPassword(email, password) {
+  return _firebase.auth.createUserWithEmailAndPassword(email, password);
+};
+
+// Sign In
+var doSignInWithEmailAndPassword = exports.doSignInWithEmailAndPassword = function doSignInWithEmailAndPassword(email, password) {
+  return _firebase.auth.signInWithEmailAndPassword(email, password);
+};
+
+// Sign out
+var doSignOut = exports.doSignOut = function doSignOut() {
+  return _firebase.auth.signOut();
+};
+
+// Password Reset
+var doPasswordReset = exports.doPasswordReset = function doPasswordReset(email) {
+  return _firebase.auth.sendPasswordResetEmail(email);
+};
+
+// Password Change
+var doPasswordUpdate = exports.doPasswordUpdate = function doPasswordUpdate(password) {
+  return _firebase.auth.currentUser.updatePassword(password);
+};
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9maXJlYmFzZS9hdXRoLmpzIl0sIm5hbWVzIjpbImF1dGgiLCJkb0NyZWF0ZVVzZXJXaXRoRW1haWxBbmRQYXNzd29yZCIsImVtYWlsIiwicGFzc3dvcmQiLCJjcmVhdGVVc2VyV2l0aEVtYWlsQW5kUGFzc3dvcmQiLCJkb1NpZ25JbldpdGhFbWFpbEFuZFBhc3N3b3JkIiwic2lnbkluV2l0aEVtYWlsQW5kUGFzc3dvcmQiLCJkb1NpZ25PdXQiLCJzaWduT3V0IiwiZG9QYXNzd29yZFJlc2V0Iiwic2VuZFBhc3N3b3JkUmVzZXRFbWFpbCIsImRvUGFzc3dvcmRVcGRhdGUiLCJjdXJyZW50VXNlciIsInVwZGF0ZVBhc3N3b3JkIl0sIm1hcHBpbmdzIjoiOzs7Ozs7O0FBQUEsQUFBUyxBQUFUOztBQUVBLEFBQ0E7QUFBTyxJQUFNLDhFQUFtQyxTQUFuQyxBQUFtQyxpQ0FBQyxBQUFELE9BQVEsQUFBUixVQUFBO1NBQzlDLGVBQUssQUFBTCwrQkFBb0MsQUFBcEMsT0FBMkMsQUFBM0MsQUFEOEM7QUFBekM7O0FBR1AsQUFDQTtBQUFPLElBQU0sc0VBQStCLFNBQS9CLEFBQStCLDZCQUFDLEFBQUQsT0FBUSxBQUFSLFVBQUE7U0FDMUMsZUFBSyxBQUFMLDJCQUFnQyxBQUFoQyxPQUF1QyxBQUF2QyxBQUQwQztBQUFyQzs7QUFHUCxBQUNBO0FBQU8sSUFBTSxnQ0FBWSxTQUFaLEFBQVksWUFBQTtTQUN2QixlQUFLLEFBQUwsQUFEdUI7QUFBbEI7O0FBR1AsQUFDQTtBQUFPLElBQU0sNENBQWtCLFNBQWxCLEFBQWtCLGdCQUFDLEFBQUQsT0FBQTtTQUM3QixlQUFLLEFBQUwsdUJBQTRCLEFBQTVCLEFBRDZCO0FBQXhCOztBQUdQLEFBQ0E7QUFBTyxJQUFNLDhDQUFtQixTQUFuQixBQUFtQixpQkFBQyxBQUFELFVBQUE7U0FDOUIsZUFBSyxBQUFMLFlBQWlCLEFBQWpCLGVBQWdDLEFBQWhDLEFBRDhCO0FBQXpCIiwiZmlsZSI6ImF1dGguanMiLCJzb3VyY2VSb290IjoiL1VzZXJzL215ZHNwci9EZXZlbG9wZXIvUmVwb3MvbmV4dGpzLXJlZHV4LWZpcmViYXNlLWF1dGhlbnRpY2F0aW9uIn0=
