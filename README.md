@@ -1,4 +1,4 @@
-# react-nextjs-firebase-authentication
+# nextjs-redux-firebase-authentication
 
 * Found in [Taming the State in React](https://roadtoreact.com/course-details?courseId=TAMING_THE_STATE)
 * [Live](https://react-firebase-authentication.wieruch.com/)
