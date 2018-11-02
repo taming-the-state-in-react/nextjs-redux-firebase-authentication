@@ -10,7 +10,7 @@
     "react-redux": "^5.0.6",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
-    "webpack": "^4.23.0"
+    "webpack": "^4.24.0"
   },
   "scripts": {
     "dev": "next",
