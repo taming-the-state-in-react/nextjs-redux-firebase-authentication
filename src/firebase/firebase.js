@@ -1,4 +1,6 @@
-import * as firebase from 'firebase';
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
 
 const prodConfig = {
   apiKey: YOUR_API_KEY,
@@ -6,7 +8,7 @@ const prodConfig = {
   databaseURL: YOUR_DATABASE_URL,
   projectId: YOUR_PROJECT_ID,
   storageBucket: '',
-  messagingSenderId: YOUR_MESSAGING_SENDER_ID,
+  messagingSenderId: YOUR_MESSAGING_SENDER_ID
 };
 
 const devConfig = {
@@ -15,12 +17,10 @@ const devConfig = {
   databaseURL: YOUR_DATABASE_URL,
   projectId: YOUR_PROJECT_ID,
   storageBucket: '',
-  messagingSenderId: YOUR_MESSAGING_SENDER_ID,
+  messagingSenderId: YOUR_MESSAGING_SENDER_ID
 };
 
-const config = process.env.NODE_ENV === 'production'
-  ? prodConfig
-  : devConfig;
+const config = process.env.NODE_ENV === "production" ? prodConfig : devConfig;
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
@@ -29,7 +29,4 @@ if (!firebase.apps.length) {
 const db = firebase.database();
 const auth = firebase.auth();
 
-export {
-  db,
-  auth,
-};
+export { db, auth };

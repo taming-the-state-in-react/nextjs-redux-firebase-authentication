@@ -1,30 +1,29 @@
-import React, { Component } from 'react';
-import Router from 'next/router';
-import withRedux from 'next-redux-wrapper';
+import React, { Component } from "react";
+import Router from "next/router";
 
-import initStore from '../src/store';
-import { SignUpLink } from './signup';
-import { PasswordForgetLink } from './pw-forget';
-import { AppWithAuthentication } from '../src/components/App';
-import { auth } from '../src/firebase';
-import * as routes from '../src/constants/routes';
+import { SignUpLink } from "./signup";
+import { PasswordForgetLink } from "./pw-forget";
+import { AppWithAuthentication } from "../src/components/App";
+import { auth } from "../src/firebase";
+import * as routes from "../src/constants/routes";
 
-const SignInPage = () =>
+const SignInPage = () => (
   <AppWithAuthentication>
     <h1>SignIn</h1>
     <SignInForm />
     <PasswordForgetLink />
     <SignUpLink />
   </AppWithAuthentication>
+);
 
 const updateByPropertyName = (propertyName, value) => () => ({
-  [propertyName]: value,
+  [propertyName]: value
 });
 
 const INITIAL_STATE = {
-  email: '',
-  password: '',
-  error: null,
+  email: "",
+  password: "",
+  error: null
 };
 
 class SignInForm extends Component {
@@ -34,46 +33,42 @@ class SignInForm extends Component {
     this.state = { ...INITIAL_STATE };
   }
 
-  onSubmit = (event) => {
-    const {
-      email,
-      password,
-    } = this.state;
+  onSubmit = event => {
+    const { email, password } = this.state;
 
-    auth.doSignInWithEmailAndPassword(email, password)
+    auth
+      .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState(() => ({ ...INITIAL_STATE }));
         Router.push(routes.HOME);
       })
       .catch(error => {
-        this.setState(updateByPropertyName('error', error));
+        this.setState(updateByPropertyName("error", error));
       });
 
     event.preventDefault();
-  }
+  };
 
   render() {
-    const {
-      email,
-      password,
-      error,
-    } = this.state;
+    const { email, password, error } = this.state;
 
-    const isInvalid =
-      password === '' ||
-      email === '';
+    const isInvalid = password === "" || email === "";
 
     return (
       <form onSubmit={this.onSubmit}>
         <input
           value={email}
-          onChange={event => this.setState(updateByPropertyName('email', event.target.value))}
+          onChange={event =>
+            this.setState(updateByPropertyName("email", event.target.value))
+          }
           type="text"
           placeholder="Email Address"
         />
         <input
           value={password}
-          onChange={event => this.setState(updateByPropertyName('password', event.target.value))}
+          onChange={event =>
+            this.setState(updateByPropertyName("password", event.target.value))
+          }
           type="password"
           placeholder="Password"
         />
@@ -81,14 +76,12 @@ class SignInForm extends Component {
           Sign In
         </button>
 
-        { error && <p>{error.message}</p> }
+        {error && <p>{error.message}</p>}
       </form>
     );
   }
 }
 
-export default withRedux(initStore)(SignInPage);
+export default SignInPage;
 
-export {
-  SignInForm,
-};
+export { SignInForm };
