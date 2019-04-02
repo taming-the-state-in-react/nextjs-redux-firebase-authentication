@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "dependencies": {
     "firebase": "^5.5.5",
-    "next": "^7.0.2",
+    "next": "^8.0.4",
     "next-redux-wrapper": "^2.0.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
