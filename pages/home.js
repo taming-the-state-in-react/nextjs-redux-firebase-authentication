@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import withRedux from 'next-redux-wrapper';
-import { connect } from 'react-redux';
-import { compose } from 'recompose';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import initStore from '../src/store';
-import { AppWithAuthorization } from '../src/components/App';
-import { db } from '../src/firebase';
+import { AppWithAuthorization } from "../src/components/App";
+import { db } from "../src/firebase";
 
-const fromObjectToList = (object) =>
+const fromObjectToList = object =>
   object
     ? Object.keys(object).map(key => ({ ...object[key], index: key }))
     : [];
@@ -29,29 +26,30 @@ class HomePage extends Component {
         <h1>Home</h1>
         <p>The Home Page is accessible by every signed in user.</p>
 
-        { !!users.length && <UserList users={users} /> }
+        {!!users.length && <UserList users={users} />}
       </AppWithAuthorization>
     );
   }
 }
 
-const UserList = ({ users }) =>
+const UserList = ({ users }) => (
   <div>
     <h2>List of App User IDs (Saved on Sign Up in Firebase Database)</h2>
-    {users.map(user =>
+    {users.map(user => (
       <div key={user.index}>{user.index}</div>
-    )}
+    ))}
   </div>
+);
 
-const mapStateToProps = (state) => ({
-  users: state.userState.users,
+const mapStateToProps = state => ({
+  users: state.userState.users
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onSetUsers: (users) => dispatch({ type: 'USERS_SET', users }),
+const mapDispatchToProps = dispatch => ({
+  onSetUsers: users => dispatch({ type: "USERS_SET", users })
 });
 
-export default compose(
-  withRedux(initStore),
-  connect(mapStateToProps, mapDispatchToProps)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
 )(HomePage);
