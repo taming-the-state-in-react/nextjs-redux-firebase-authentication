@@ -7,7 +7,7 @@
     "next-redux-wrapper": "^2.0.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-redux": "^6.0.0",
+    "react-redux": "^7.0.3",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "webpack": "^4.23.0"
