@@ -1,3 +1,7 @@
+**DEPRECATED: Please use this [starter project](https://github.com/rwieruch/nextjs-firebase-authentication) instead.**
+
+______
+
 # nextjs-redux-firebase-authentication
 
 [![Build Status](https://travis-ci.org/taming-the-state-in-react/nextjs-redux-firebase-authentication.svg?branch=master)](https://travis-ci.org/taming-the-state-in-react/nextjs-redux-firebase-authentication) [![Slack](https://slack-the-road-to-learn-react.wieruch.com/badge.svg)](https://slack-the-road-to-learn-react.wieruch.com/) [![Greenkeeper badge](https://badges.greenkeeper.io/taming-the-state-in-react/nextjs-redux-firebase-authentication.svg)](https://greenkeeper.io/)
